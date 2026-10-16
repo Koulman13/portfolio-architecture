@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio — Architecture</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- MENU -->
+  <header>
+    <a href="#" class="logo">Ellijah Lacroix Architecture</a>
+
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="#vision">Vision</a>
+      <a href="#apropos">Profil</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- INTRODUCTION -->
+  <section class="introduction" id="vision">
+    <h1>Architecture et mutation,<br>territoires méditérranéens</h1>
+
+    <p>
+      Dans un contexte méditerranéen en mutation, je conçois l’architecture comme un outil de réparation et d’invention, ancré dans les réalités locales. De Marseille à Athènes, en passant par Séville, je m’appuie sur l’existant pour imaginer des lieux ouverts et évolutifs, favorisant les rencontres, les pratiques collectives et l’appropriation. Du territoire au détail constructif, je cherche à révéler le potentiel des lieux et à créer de nouvelles possibilités de vivre ensemble.
+    </p>
+
+  </section>
+
+  <!-- FILTRES -->
+  <section id="projets">
+
+    <div class="filtres">
+      <button class="filtre actif" data-filtre="tous">
+        Tous les projets
+      </button>
+
+      <button class="filtre" data-filtre="pfe">
+        PFE
+      </button>
+
+      <button class="filtre" data-filtre="master">
+        Master
+      </button>
+
+      <button class="filtre" data-filtre="logement">
+        Logement
+      </button>
+
+      <button class="filtre" data-filtre="culture">
+        Culture
+      </button>
+
+      <button class="filtre" data-filtre="réhabilitation">
+        Réhabilitation
+      </button>
+
+      <button class="filtre" data-filtre="construction">
+        Construction neuve
+      </button>
+    </div>
+
+    <!-- PROJETS -->
+    <div class="projets">
+
+      <article class="projet" data-categories="pfe logement culture construction">
+        <a href="projet-scene.html">
+          <img
+            class="image-projet"
+            src="images/scene.jpg"
+            alt="Projet architectural à Athènes"
+          >
+          <div class="informations">
+            <h2>La Scène Habitée</h2>
+            <p>Athènes · PFE</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="projet" data-categories="pfe culture construction">
+        <a href="projet-champ.html">
+          <img
+            class="image-projet"
+            src="images/champ.jpg"
+            alt="Projet architectural à Athènes"
+          >
+          <div class="informations">
+            <h2>Le Champ des Possibles</h2>
+            <p>Athènes · PFE</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="projet" data-categories="master culture réhabilitation construction">
+        <a href="projet-danse.html">
+          <img
+            class="image-projet"
+            src="images/danse.jpg"
+            alt="Centre de danse"
+          >
+          <div class="informations">
+            <h2>World Dance Center</h2>
+            <p>Marseille</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="projet" data-categories="master logement culture construction">
+        <a href="projet-seville.html">
+          <img
+            class="image-projet"
+            src="images/seville.jpg"
+            alt="Transformation architecturale à Séville"
+          >
+          <div class="informations">
+            <h2>Fabrica de Historias</h2>
+            <p>Séville</p>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section id="apropos" class="about">
+    <h2>Profil</h2>
+
+    <div class="about-content">
+        <div class="about-photo">
+            <img src="images/portrait.jpg" alt="Portrait d'Ellijah Lacroix">
+        </div>
+
+        <div class="about-text">
+            <h3>Ellijah Lacroix</h3>
+            <p class="about-role">Architecte diplômé d’État</p>
+            <h3>Formation</h3>
+            <ul>
+              <li>Architecte diplômé d'État à l'ENSA-Marseille</li>
+              <li>Formation en génie civil à Polytech Marseille</li>
+              <li>ERASMUS à l'université de Liège, Belgique</li>
+            </ul>
+
+            <h3>Expériences professionnelles</h3>
+            <ul>
+              <li>Stage de 6 mois en bureau d'étude chez Assystem</li>
+              <li>Stage de 2 mois en chargé d'étude chez Sixense</li>
+              <li>Stage de 1 mois en agence d'architecture chez FADAA Architecture</li>
+            </ul>
+
+            <h3>Logiciels</h3>
+            <ul>
+              <li>Archicad, AutoCAD, Revit</li>
+              <li>SketchUP, V-ray, GIMP</li>
+              <li>Python, Robot Structural Analysis</li>
+            </ul>
+
+            </ul>
+
+
+            <a href="documents/CV_Ellijah_Lacroix.pdf" download class="about-skills">
+                Télécharger mon CV complet↗
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <span>Ellijah Lacroix Architecture</span>
+    <a href="mailto:lacroix.ellijah@gmail.com">Me contacter ↗</a>
+  </footer>
+
+  <!-- FILTRAGE DES PROJETS -->
+  <script>
+    const boutons = document.querySelectorAll(".filtre");
+    const projets = document.querySelectorAll(".projet");
+
+    boutons.forEach((bouton) => {
+      bouton.addEventListener("click", () => {
+        const filtre = bouton.dataset.filtre;
+
+        boutons.forEach((b) => b.classList.remove("actif"));
+        bouton.classList.add("actif");
+
+        projets.forEach((projet) => {
+          const categories = projet.dataset.categories.split(" ");
+
+          projet.hidden =
+            filtre !== "tous" && !categories.includes(filtre);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
